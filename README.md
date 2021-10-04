@@ -3,7 +3,7 @@ MLFlow Demo
 
 Minimal example to demonstrate basic mlflow features. 
 
-The following items are logged in the demo to demonstrate how mlflow facilitates reproducibility:
+The demo loads a dataset, trains a model, and logs the following items to mlflow for reproducibility: 
 
 * model hyper-parameters
 * evaluation metrics 
@@ -11,7 +11,7 @@ The following items are logged in the demo to demonstrate how mlflow facilitates
 * fitted model 
 * git commit hash 
 
-The MLFlow's interactive UI allows us to view and compare experiments.
+We can then view and compare experiments with mlflow's interactive UI.
 
 ##  Setup
 
