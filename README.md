@@ -3,6 +3,16 @@ MLFlow Demo
 
 Minimal example to demonstrate mlflow functionalities. 
 
+The following things are logged in the dummy experiment:
+
+* model hyper-parameters
+* evaluation metrics 
+* dataset 
+* fitted model 
+* git commit hash 
+
+The MLFlow UI allows us to compare models based on eval metrics, for example.  
+
 ##  Setup
 
 * `git clone https://github.com/ky489401/mlflow_demo.git`
