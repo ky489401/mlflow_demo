@@ -11,7 +11,7 @@ The following items are logged in the demo to demonstrate how mlflow facilitates
 * fitted model 
 * git commit hash 
 
-The MLFlow's interactive UI allows us to compare models based on eval metrics etc. (See screenshot below)  
+The MLFlow's interactive UI allows us to view and compare experiments.
 
 ##  Setup
 
