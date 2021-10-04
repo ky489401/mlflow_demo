@@ -7,41 +7,46 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
 def save_as_pickle(path, save_object):
+    """
+    Helper function for saving artefacts
+    """
     with open(path, "wb") as f:
         pickle.dump(save_object, f)
 
 if __name__ == "__main__":
 
-    # load dataset
-    iris = datasets.load_iris()
-    X = iris.data
-    y = iris.target
+    with mlflow.start_run(run_name="demo run") as run:
 
-    # train classification model
-    penalty = "l2"  # regularisation param
-    clf = LogisticRegression(penalty=penalty).fit(X, y)
+        # load dataset
+        iris = datasets.load_iris()
+        X = iris.data
+        y = iris.target
 
-    # predict
-    y_pred = clf.predict(X)
+        # train classification model
+        penalty = "l2"  # regularisation param
+        clf = LogisticRegression(penalty=penalty).fit(X, y)
 
-    # log a model hyper-parameter
-    mlflow.log_param("penality", penalty)
+        # predict
+        y_pred = clf.predict(X)
 
-    # log an evaluation metric
-    accuracy = accuracy_score(y_true=y, y_pred=y_pred)
-    mlflow.log_metric("accuracy", accuracy)
+        # log a model hyper-parameter
+        mlflow.log_param("penality", penalty)
 
-    # log datasets and the trained model as artefacts
-    model_dir = "artefacts"
-    if not os.path.exists(model_dir):
-        os.makedirs(model_dir)
+        # log an evaluation metric
+        accuracy = accuracy_score(y_true=y, y_pred=y_pred)
+        mlflow.log_metric("accuracy", accuracy)
 
-    dataset_path = os.path.join(model_dir, "dataset.pkl")
-    model_path = os.path.join(model_dir, "model.pkl")
+        # log datasets and the trained model as artefacts
+        model_dir = "artefacts"
+        if not os.path.exists(model_dir):
+            os.makedirs(model_dir)
 
-    save_as_pickle(save_object=iris, path=dataset_path)
-    save_as_pickle(save_object=iris, path=model_path)
+        dataset_path = os.path.join(model_dir, "dataset.pkl")
+        model_path = os.path.join(model_dir, "model.pkl")
 
-    mlflow.log_artifacts(model_dir)
+        save_as_pickle(save_object=iris, path=dataset_path)
+        save_as_pickle(save_object=iris, path=model_path)
 
-    # git commit hash is logged to server too
+        mlflow.log_artifacts(model_dir)
+
+        # git commit hash is logged to server too
