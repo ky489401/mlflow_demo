@@ -6,9 +6,6 @@ from sklearn import datasets
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
-# https://github.com/mlflow/mlflow-example/blob/master/train.py
-# https://www.mlflow.org/docs/latest/quickstart.html
-
 def save_as_pickle(path, save_object):
     with open(path, "wb") as f:
         pickle.dump(save_object, f)
