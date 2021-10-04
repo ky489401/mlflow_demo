@@ -27,3 +27,7 @@ The MLFlow UI allows us to compare models based on eval metrics etc.
 * run demo `python demo.py`
 * setup mlflow tracking UI `mlflow ui`
 * access UI at `http://127.0.0.1:5000`
+
+## UI 
+should look like this...
+![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fpycaret.org%2Fmlflow%2F&psig=AOvVaw3RTyHvX7TEqetW1XxoCYHU&ust=1633472991979000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDU2Z3nsfMCFQAAAAAdAAAAABAD) 
